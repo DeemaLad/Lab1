@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Лабораторная работа №1</title>
+	<style>
+		body {
+			background-color: #d8d8d8;
+		}
+		.equation {
+			text-align: center;
+			font-size: 28px;
+			
+		}
+
+		.decideAlg {
+			display: flex;
+			justify-content: space-between;
+			position: relative;
+			padding: 40px 40px;
+		}
+
+		
+
+		
+	</style>
+</head>
+<body>
+	<div class = "container">
+		<div class="equation">ax^2 + bx + c = 0</div>
+		<div class="decideAlg">
+			<div class="math">
+
+				<h2>Мат.Алг</h2>
+				<div>
+					<p>D = sqrt(b^2 - 4*a*c)</p>
+					<p>x = (-b +- sqrt(D))/ 2*a</p>
+					</div>	
+			</div>
+			<div class="pascal">
+				<h2>Pascal</h2>
+				<pre>
+Var k, m, n :real;{объявляем переменные для коэффициентов и свободного числа}
+x1, x2, D :real;{переменные для хранения значений корней}
+begin
+Writeln(‘введите коэффициенты перед переменными и свободное число-’);
+readln(k,m,n);
+D:=sqr(m)-(4*k*n);{Находим дискриминант}
+If D>0 then
+begin
+x1:=(-m+sqrt(D))/2*k; {Вот первый корень}
+x2:=(-m-sqrt(D))/2*k; {Вот второй корень}
+writeln(‘Первый корень- ‘,x1,’ Второй корень- ‘,x2);
+end else
+if D=0 then
+begin
+x1:=(-m)/2*k;{так как дискриминант равен одному ,то и корень получим один}
+writeln(‘ Корень — ‘,x1);
+end else
+writeln(‘ Корней нет ‘);
+End.
+				</pre>
+			</div>
+			<div class="Cplusplus">
+				<h2>C++</h2>
+				<pre>
+#include <iostream> // подключаем cin/cout
+#include <cmath> // подключаем sqrt
+ 
+using namespace std;
+ 
+int main()
+{
+  double a,b,c,d,x1,x2; // Объявляем переменные с плавающей точкой.
+ 
+  cout << "Введите a\n"; // Вводим исходные данные
+  cin >> a;
+  cout << "Введите b\n";
+  cin >> b;
+  cout << "Введите c\n";
+  cin >> c;
+ 
+  d = b * b - 4 * a * c; // Рассчитываем дискриминант
+  if (d > 0) // Условие при дискриминанте больше нуля
+  {
+    x1 = ((-b) + sqrt(d)) / (2 * a);
+    x2 = ((-b) - sqrt(d)) / (2 * a);
+    cout << "x1 = " << x1 << "\n";
+    cout << "x2 = " << x2 << "\n";
+  }
+  if (d == 0) // Условие для дискриминанта равного нулю
+  {
+    x1 = -(b / (2 * a));
+    cout << "x1 = x2 = " << x1 << "\n";
+  }
+  if (d < 0) // Условие при дискриминанте меньше нуля
+    cout << "D < 0, Действительных корней уравнения не существует";
+}
+				</pre>
+			</div>
+			
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		$(".decideAlg").click(function () {        
+        $(this).children(".math").slideToggle(300);
+    });
+	</script>
+</body>
+</html>
